@@ -1,6 +1,6 @@
 #include "oslabs.h"
 
-const struct PCB NULLPCB = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+const struct PCB NULLPCB = {0, 0, 0, 0, 0, 0, 0};
 
 int is_nullpcb(struct PCB pcb){
     return pcb.process_id == 0 && pcb.arrival_timestamp == 0 && pcb.total_bursttime == 0 && pcb.execution_starttime == 0 && pcb.execution_endtime == 0 && pcb.remaining_bursttime == 0 && pcb.process_priority == 0;
@@ -63,7 +63,18 @@ struct PCB handle_process_completion_pp(struct PCB ready_queue[QUEUEMAX], int *q
 }
 
 
-struct PCB handle_process_arrival_srtp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, struct PCB current_process, struct PCB new_process, int time_stamp);
-struct PCB handle_process_completion_srtp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp);
-struct PCB handle_process_arrival_rr(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, struct PCB current_process, struct PCB new_process, int timestamp, int time_quantum);
-struct PCB handle_process_completion_rr(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp, int time_quantum);
+struct PCB handle_process_arrival_srtp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, struct PCB current_process, struct PCB new_process, int time_stamp){
+
+}
+
+struct PCB handle_process_completion_srtp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp){
+
+}
+
+struct PCB handle_process_arrival_rr(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, struct PCB current_process, struct PCB new_process, int timestamp, int time_quantum){
+
+}
+
+struct PCB handle_process_completion_rr(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp, int time_quantum){
+
+}
