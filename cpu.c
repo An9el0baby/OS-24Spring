@@ -80,6 +80,7 @@ struct PCB handle_process_arrival_srtp(struct PCB ready_queue[QUEUEMAX], int *qu
         return current_process;
     // if the new process has a shorter remaining burst time than the current process, add the current process to the queue and return the new process
     } else {
+        current_process.execution_starttime = 0;
         current_process.execution_endtime = 0;
         current_process.remaining_bursttime -= (time_stamp - current_process.execution_starttime);
         ready_queue[*queue_cnt] = current_process;
