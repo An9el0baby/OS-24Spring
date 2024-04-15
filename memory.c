@@ -195,7 +195,7 @@ void release_memory(struct MEMORY_BLOCK freed_block, struct MEMORY_BLOCK memory_
     // merge the next block
     if (freed_index < *map_cnt - 1 && memory_map[freed_index + 1].process_id == 0)
     {
-        memory_map[freed_index].end_address == memory_map[freed_index + 1].end_address;
+        memory_map[freed_index].end_address = memory_map[freed_index + 1].end_address;
         memory_map[freed_index].segment_size += memory_map[freed_index + 1].segment_size;
         for (int i = freed_index + 1; i < *map_cnt - 1; i++)
         {
