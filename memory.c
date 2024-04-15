@@ -84,8 +84,8 @@ struct MEMORY_BLOCK first_fit_allocate(int request_size, struct MEMORY_BLOCK mem
             }
             return new_block;
         }
-        return NULLBLOCK;
     }
+    return NULLBLOCK;
 }
 struct MEMORY_BLOCK worst_fit_allocate(int request_size, struct MEMORY_BLOCK memory_map[MAPMAX], int *map_cnt, int process_id)
 {
