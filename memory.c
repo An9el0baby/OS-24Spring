@@ -45,6 +45,7 @@ struct MEMORY_BLOCK best_fit_allocate(int request_size, struct MEMORY_BLOCK memo
             old_block.end_address,
             old_block.segment_size - request_size,
             0};
+        memory_map[best_index + 1] = temp;
         (*map_cnt)++;
     }
     return new_block;
