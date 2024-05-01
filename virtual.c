@@ -38,7 +38,7 @@ int process_page_access_fifo(struct PTE page_table[TABLEMAX], int *table_cnt, in
         page_table[min_index].frame_number = -1;
         page_table[min_index].arrival_timestamp = -1;
         page_table[min_index].last_access_timestamp = -1;
-        page_table[min_index].reference_count = 0;
+        page_table[min_index].reference_count = -1;
 
         page_table[page_number].is_valid = 1;
         page_table[page_number].frame_number = frame_number;
