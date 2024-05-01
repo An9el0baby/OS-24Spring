@@ -158,14 +158,21 @@ int process_page_access_lfu(struct PTE page_table[TABLEMAX], int *table_cnt, int
         page_table[page_number].reference_count = 1;
         return frame_number;
     }
-    int min_lfu_timestamp = INT_MAX;
+    int min_reference_count = INT_MAX;
+    int earliest_timestamp = INT_MAX;
     int min_index = -1;
+
     for (int i = 0; i < *table_cnt; i++)
     {
-        if (page_table[i].is_valid && page_table[i].reference_count < min_lfu_timestamp)
+        if (page_table[i].is_valid)
         {
-            min_lfu_timestamp = page_table[i].reference_count;
-            min_index = i;
+            if (page_table[i].reference_count < min_reference_count ||
+                (page_table[i].reference_count == min_reference_count && page_table[i].arrival_timestamp < earliest_timestamp))
+            {
+                min_reference_count = page_table[i].reference_count;
+                earliest_timestamp = page_table[i].arrival_timestamp;
+                min_index = i;
+            }
         }
     }
     if (min_index != -1)
